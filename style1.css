@@ -1,0 +1,496 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #001f3f;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+    width: 2000px;
+    height: 1200px;
+}
+.aquarium {
+    width: 1900px;
+    height: 1100px;
+    margin: 50px 30px 40px;
+    border-left: 15px solid #008a91;
+    border-right: 15px solid #008a91;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(0, 150, 199, 0.1)
+}
+
+.bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/bg.jpg);
+    background-size: cover;
+    z-index: 1;
+    animation: wave 10s linear infinite;
+    opacity: 0.8;
+}
+@keyframes wave {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.border {
+    position: absolute;
+    left: -20px;
+    width: 1920px;
+    height: 50px;
+    background: black;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.border-top {
+    top:0;
+}
+
+.border-top::before {
+    content: '';
+    position: absolute;
+    background: #d6cccc47;
+    top: 0;
+    left: -80px;
+    height: 40px;
+    width: 80px;
+    transform: rotate(-60deg);
+    filter: brightness(.7);
+    animation: mirror 8s linear infinite;
+}
+@keyframes mirror {
+    0% {
+        left: -80px;
+    } 100% {
+        left: 690px;
+    }
+}
+
+.border-bottom {
+    top: calc( 100% - 20px );
+}
+
+.border-bottom::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background-color: #d6cccc47;
+    top: 0;
+    left: -80px;
+    transform: rotate(-60deg);
+    filter: brightness(.7);
+    animation: mirror 8s linear infinite;
+    animation-delay: 2s;
+}
+.fish {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-image: url(./images/fish.png); /* Thay 'fish.png' bằng đường dẫn ảnh cá bạn muốn sử dụng */
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    animation: swim 15s linear infinite;
+    z-index: 10;
+}
+@keyframes swim {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(70vw); /* Di chuyển sang bên phải */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.fish-2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-image: url(./images/fish2.png);
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    animation: swim 25s linear infinite;
+    z-index: 10;
+}
+
+.fish-3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: url(./images/fish3.png);
+    background-size:contain ;
+    background-position: center;
+    transform-origin: center;
+    animation: swim 30s linear infinite;
+    z-index: 10;
+    top:30%;
+}
+
+.fish-4 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: url(./images/fish4.png);
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    animation: swim 20s linear infinite;
+    z-index: 20;
+    top:40%;
+}
+.fish-5 {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-image: url(./images/fish5.png);
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    animation: swim 35s linear infinite;
+    z-index: 20;
+    top:70%;
+}
+.bubbles {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow: hidden;
+}
+.bubble {
+    position: absolute;
+    bottom: 0;
+    width: 50px; 
+    height: 50px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;  
+    animation: bubble-rise 6s linear infinite;
+    }
+.bubble-1 {
+    left: 20%;   
+    animation-duration: 6s;
+    }
+.bubble-2 {
+    left: 40%; 
+    animation-duration: 8s; 
+    }
+.bubble-3 {
+    left: 60%;
+    animation-duration: 5s;
+    }
+.bubble-4 {
+    left: 80%;
+    animation-duration: 7s;  
+    }
+.bubble-5 { left: 10%; animation-duration: 4s; }
+@keyframes bubble-rise {
+    0% { transform: translateY(0) scale(0.8); opacity: 0.6; }
+    50% { opacity: 1; transform: translateY(-200px) scale(1.2); }
+    100% { transform: translateY(-400px) scale(0.6); opacity: 0; }
+}
+.light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.light span {
+    position: absolute;
+    width: 30px ;
+    height: 30px;
+    border-radius: 50%;
+    animation: light 1.5s linear infinite ;
+}
+.light span::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: calc(50% - 7.5px);
+    left: calc(50% - 10px);
+    filter: blur(1px);
+}
+.light span::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    top: calc(50% - 15px);
+    left: calc(50% - 20px);
+    filter: blur(3px);
+}
+@keyframes light {
+    0%, 100% {
+        filter: hue-rotate(0deg) brightness(1.5);
+    } 50% {
+        filter: hue-rotate(360deg) brightness(1.75);
+    }
+}
+.light-1 {
+    bottom: 30%;
+    left: 10%;
+    background: yellow;
+}
+.light-1::before {
+    background: #ffff0091;
+}
+.light-1::after {
+    background: #ffff0091;
+}
+.light-2 {
+    bottom: 50%;
+    left: 70%;
+    background: green;
+}
+.light-2::before {
+    background: #00800082;
+}
+.light-2::after {
+    background: #00800082;
+}
+.light-3 {
+    bottom: 70%;
+    left: 47%;
+    background: red;
+}
+.light-3::before {
+    background: #ff000052;
+}
+.light-3::after {
+    background: #ff000052;
+}
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    background: url(./images/seaweed.png) no-repeat center;
+    background-size: contain;
+    width: 200px;
+    height: 150px;
+    z-index: 5;
+    animation: sway 3s ease-in-out infinite;
+}
+
+.seaweed-1 {
+    left: 15%;
+    transform-origin: bottom center;
+    animation-delay: 0s;
+}
+
+.seaweed-2 {
+    left: 40%;
+    transform-origin: bottom center;
+    animation-delay: 1s;
+}
+
+.seaweed-3 {
+    left: 65%;
+    transform-origin: bottom center;
+    animation-delay: 2s;
+}
+
+/* Hiệu ứng lắc nhẹ cho tảo biển */
+@keyframes sway {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.jellyfish {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: url(./images/jellyfish.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.8;
+    animation: float 10s ease-in-out infinite;
+    z-index: 5;
+}
+
+/* Vị trí và hiệu ứng cho từng con sứa */
+.jellyfish-1 {
+    top: 80%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.jellyfish-2 {
+    top: 60%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.jellyfish-3 {
+    top: 90%;
+    left: 80%;
+    animation-delay: 4s;
+}
+
+/* Hoạt ảnh nổi cho sứa */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(0.8);
+    }
+    50% {
+        transform: translateY(-50px) scale(1);
+    }
+    100% {
+        transform: translateY(0) scale(0.8);
+    }
+}
+.shell {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url(./images/shell.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.8;
+    z-index: 5;
+    animation: move-shell 8s linear infinite;
+}
+
+/* Vị trí và hiệu ứng cho từng vỏ ốc sên */
+.shell-1 {
+    bottom: 10%;
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.shell-2 {
+    bottom: 15%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.shell-3 {
+    bottom: 20%;
+    left: 75%;
+    animation-delay: 4s;
+}
+
+/* Hoạt ảnh di chuyển nhẹ cho vỏ ốc sên */
+@keyframes move-shell {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.starfish {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: url(./images/starfish.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.9;
+    z-index: 4;
+    animation: move-starfish 10s ease-in-out infinite;
+}
+
+/* Vị trí và hiệu ứng cho từng sao biển */
+.starfish-1 {
+    bottom: 5%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.starfish-2 {
+    bottom: 10%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+/* Hoạt ảnh di chuyển nhẹ cho sao biển */
+@keyframes move-starfish {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(20deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}.starfish {
+    position: absolute;
+    width:200px;
+    height: 200px;
+    background: url(./images/starfish.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.9;
+    z-index: 4;
+    animation: move-starfish 10s ease-in-out infinite;
+}
+
+/* Vị trí và hiệu ứng cho từng sao biển */
+.starfish-1 {
+    bottom: 5%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.starfish-2 {
+    bottom: 10%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+/* Hoạt ảnh di chuyển nhẹ cho sao biển */
+@keyframes move-starfish {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(20deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+.swimmer {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: url(./images/swimmer.png) no-repeat center;
+    background-size: contain;
+    top: 40%; /* Vị trí khởi đầu của người bơi */
+    left: -150px;
+    z-index: 10;
+    animation: swim 20s linear infinite;
+    opacity: 0.8;
+    transform: translateY(-50%);
+}
+
+/* Hiệu ứng bơi cho người */
+@keyframes swim {
+    0% {
+        left: -150px; /* Bắt đầu từ ngoài hồ bên trái */
+        transform: translateY(-10px) rotateY(0deg);
+    }
+    25% {
+        transform: translateY(0px) rotateY(0deg);
+    }
+    50% {
+        left: calc(100% - 100px); /* Di chuyển đến giữa hồ */
+        transform: translateY(-10px) rotateY(180deg); /* Đổi hướng bơi */
+    }
+    75% {
+        transform: translateY(0px) rotateY(180deg);
+    }
+    100% {
+        left: -150px; /* Quay lại bên trái hồ */
+        transform: translateY(-10px) rotateY(0deg);
+    }
+}
